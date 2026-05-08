@@ -444,13 +444,13 @@ function showToast(item) {
       <div class="toast-title">${escHtml(item.alias)} colocó un píxel</div>
       <div class="toast-sub">${sub}</div>
     </div>`;
+  // remove any existing toast immediately
+  [...toastContainer.children].forEach(c => c.remove());
   toastContainer.prepend(el);
   setTimeout(() => {
     el.classList.add('out');
     el.addEventListener('animationend', () => el.remove());
   }, 3500);
-  // keep max 3 toasts
-  while (toastContainer.children.length > 3) toastContainer.lastChild.remove();
 }
 
 /* ── HTML escape ── */
