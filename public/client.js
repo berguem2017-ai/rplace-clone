@@ -459,4 +459,6 @@ function escHtml(str) {
 }
 
 /* ── Init ── */
-centerCanvas();
+// Wait for layout to settle before computing canvas size
+requestAnimationFrame(() => setTimeout(centerCanvas, 80));
+window.addEventListener('resize', centerCanvas);
